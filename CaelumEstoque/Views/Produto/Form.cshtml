@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     Layout = null;
 }
 
@@ -15,7 +16,7 @@
             @Html.ValidationMessage("produto.Invalido")
 
             <label for="nome">Nome:</label>
-            <input id="nome" name="produto.Nome" value="@ViewBag.Produto.Nome"/>
+            <input id="nome" name="produto.Nome" value="@ViewBag.Produto.Nome" />
             @Html.ValidationMessage("produto.Nome")
 
             <label for="preco">Preço:</label>
@@ -32,7 +33,7 @@
                 @foreach (var categoria in ViewBag.Categorias)
                 {
                     <option value="@categoria.Id" selected="@categoria.Id.Equals(ViewBag.Produto.CategoriaId)">@categoria.Nome</option>
-                    
+
                 }
 
             </select>

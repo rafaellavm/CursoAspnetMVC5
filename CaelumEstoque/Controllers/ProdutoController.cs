@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using CaelumEstoque.DAO;
 using CaelumEstoque.Models;
 
+
 namespace CaelumEstoque.Controllers
 {
     public class ProdutoController : Controller
@@ -15,9 +16,9 @@ namespace CaelumEstoque.Controllers
         {
             ProdutosDAO dao = new ProdutosDAO();
             IList<Produto> produtos = dao.Lista();
-            ViewBag.Produtos = produtos;
-
-            return View();
+            
+            //enviando a variável como argumento do método view
+            return View(produtos);
         }
 
         public ActionResult Form()
@@ -34,12 +35,13 @@ namespace CaelumEstoque.Controllers
         public ActionResult Adiciona(Produto produto)
         {
             int idDaInformatica = 1;
-            if(produto.CategoriaId.Equals(idDaInformatica) && produto.Preco < 100){
+            if (produto.CategoriaId.Equals(idDaInformatica) && produto.Preco < 100)
+            {
 
                 //"produto.Invalido": chave que é chamada na view
                 ModelState.AddModelError("produto.Invalido", "Iformática com preço abaixo de 100 reais");
             }
-            
+
             if (ModelState.IsValid)
             {
                 ProdutosDAO dao = new ProdutosDAO();
@@ -56,7 +58,18 @@ namespace CaelumEstoque.Controllers
 
                 return View("Form");
             }
+        }
 
+        public ActionResult Visualiza(int id)
+        {
+            ProdutosDAO produtodao = new ProdutosDAO();
+            Produto produto = produtodao.BuscaPorId(id);
+
+            ViewBag.Produto = produto;
+
+            return View();
         }
     }
+
+
 }

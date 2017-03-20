@@ -27,7 +27,9 @@
                     <tr>
                         <td>@produto.Id</td>
                         <td>
-                            @Html.ActionLink(produto.Nome, "Visualiza", new { produto.Id})
+                            <!--Html.ActionLink(produto.Nome, "Visualiza", new { produto.Id})-->
+                            <!-- Html.Routelink: texto + chamada do método pelo seu nome de rota + id que deseja passar -->
+                            @Html.RouteLink(produto.Nome, "VisualizaProduto", new {id = produto.Id })
                         </td>
                         <td>@produto.Quantidade</td>
                     </tr>

@@ -19,8 +19,11 @@
         Descricao: @ViewBag.Produto.Descricao <br />
         Categoria: @ViewBag.Produto.Categoria.Nome <br />
 
-        <!-- Texto do link, Método e controller-->
-        @Html.ActionLink("Voltar para lista de produtos", "Index", "Produto")
+        <!-- Texto do link, Método e controller
+        Html.ActionLink("Voltar para lista de produtos", "Index", "Produto")-->
+
+        <!-- Html.Routelink: texto + chamada do método pelo seu nome de rota   -->
+        @Html.RouteLink("Voltar para lista de produtos", "ListaProdutos")
     </div>
 </body>
 </html>

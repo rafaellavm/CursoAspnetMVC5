@@ -25,12 +25,11 @@ namespace CaelumEstoque.Controllers
 
         public ActionResult Form()
         {
-            CategoriasDAO categoriasDao = new CategoriasDAO();
-            IList<CategoriaDoProduto> categorias = categoriasDao.Lista();
-            ViewBag.Categorias = categorias;
             ViewBag.Produto = new Produto();
-
-            return View();
+            CategoriasDAO dao = new CategoriasDAO();
+            IList<CategoriaDoProduto> categorias = dao.Lista();
+            ViewBag.Categorias = categorias;
+            return View(categorias);
         }
 
         [HttpPost]

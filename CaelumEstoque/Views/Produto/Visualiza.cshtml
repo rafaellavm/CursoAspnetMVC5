@@ -1,11 +1,18 @@
-﻿        Id: @ViewBag.Produto.Id <br />
-        Nome: @ViewBag.Produto.Nome <br />
-        Quantidade: @ViewBag.Produto.Quantidade <br />
-        Preco: @ViewBag.Produto.Preco <br />
-        Descricao: @ViewBag.Produto.Descricao <br />
-        Categoria: @ViewBag.Produto.Categoria.Nome <br />
+﻿@{
+    Layout = null;
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    Id: @ViewBag.Produto.Id<br />
+    Nome: @ViewBag.Produto.Nome<br />
+    Quantidade: @ViewBag.Produto.Quantidade<br />
+    Preço: @ViewBag.Produto.Preco<br />
+    Descricao: @ViewBag.Produto.Descricao<br />
+    Categoria: @ViewBag.Produto.Categoria.Nome<br />
 
-        <!-- Texto do link, Método e controller
-        Html.ActionLink("Voltar para lista de produtos", "Index", "Produto")-->
-        <!-- Html.Routelink: texto + chamada do método pelo seu nome de rota   -->
-        @Html.RouteLink("Voltar para lista de produtos", "ListaProdutos")
+    @Html.RouteLink("Voltar para a lista", "ListaProdutos")
+</body>
+</html>

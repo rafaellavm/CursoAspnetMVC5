@@ -1,15 +1,15 @@
 ﻿
 using CaelumEstoque.DAO;
+using CaelumEstoque.Filtros;
 using CaelumEstoque.Models;
 using System.Collections.Generic;
 using System.Web.Mvc;
+
 namespace CaelumEstoque.Controllers
 {
+    [AutorizacaoFilter]
     public class ProdutoController : Controller
     {
-        //
-        // GET: /Produto/
-
         [Route("produtos", Name = "ListaProdutos")]
         public ActionResult Index()
         {
@@ -28,6 +28,8 @@ namespace CaelumEstoque.Controllers
         }
 
         [HttpPost]
+        //pra evitar o Cross-site request forgery (invasão) , criaremos um token, na página do form também
+        [ValidateAntiForgeryToken]
         public ActionResult Adiciona(Produto produto)
         {
             int idDaInformatica = 1;

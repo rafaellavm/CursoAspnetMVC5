@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CaelumEstoque.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -14,6 +15,9 @@ namespace CaelumEstoque
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            //aqui ele registra o filtro de autorização de usuário (dentro da classe App_Start/FilterConfig.cs
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
         }
     }
 }

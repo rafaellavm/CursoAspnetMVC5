@@ -2,7 +2,7 @@
 
     <form action="/Produto/Adiciona" method="post">
         <!--AntiForgeryToken: pra evitar o Cross-site request forgery (invasão) , criaremos um token-->
-        
+        @Html.AntiForgeryToken()
         @Html.ValidationMessage("produto.Nome")
         <label for="nome">Nome:</label>
         <input id="nome" name="produto.Nome" value="@ViewBag.Produto.Nome" class="form-control" />
